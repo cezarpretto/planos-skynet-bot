@@ -48,7 +48,7 @@ function pm2Status(msg, bot) {
       let cell = line.split('│')
       return `*SERVIÇO:* ${cell[1].trim()}\n*STATUS:* ${cell[5].trim()} \n\n`
     })
-    bot.sendMessage(msg.chat.id, stdout.join(), { parse_mode: 'Markdown' })
+    bot.sendMessage(msg.chat.id, stdout.join(''), { parse_mode: 'Markdown' })
   }, stderr => {
     bot.sendMessage(msg.chat.id, stderr)
   })
