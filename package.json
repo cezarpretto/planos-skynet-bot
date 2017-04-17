@@ -1,0 +1,17 @@
+{
+  "name": "planos-skynet-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-exec-promise": "^0.1.1",
+    "node-telegram-bot-api": "^0.27.0",
+    "ping": "^0.2.2",
+    "ramda": "^0.23.0"
+  }
+}
