@@ -1,8 +1,10 @@
 const TelegramBot = require('node-telegram-bot-api')
-const TOKEN = '365831440:AAHnseel3oe6Rgp0yZzg0EdWius44wVUVFw'
+const TOKEN = process.env.SKYNET_TOKEN
 const R = require('ramda')
 const saudacao = require('./saudacao')
+const sensors = require('./sensors')
 const ping = require('./ping')
+const images = require('./images')
 
 const bot = new TelegramBot(TOKEN, { polling: true })
 
@@ -40,10 +42,15 @@ bot.onText( /\/serverstatus/, ( msg, match ) => {
   ping.serverStatus(msg, bot)
 })
 
+// bot.onText( /\/temperatura/, ( msg, match ) => {
+//   sensors.temperatura(msg, bot)
+// })
+
 bot.on('message', msg => {
   if(!R.isNil(msg.text)) {
     if(msg.text.toLowerCase().match(/\bkkk\b/)) {
-      bot.sendPhoto(msg.chat.id, 'http://www.snopes.com/wordpress/wp-content/uploads/2017/01/trump-kkk.jpg', {'reply_to_message_id': msg.message_id})
+      // bot.sendPhoto(msg.chat.id, 'http://www.snopes.com/wordpress/wp-content/uploads/2017/01/trump-kkk.jpg', {'reply_to_message_id': msg.message_id})
+      images.getKKKImage(msg, bot)
     }
     if(msg.text.toLowerCase().match(/\bpapai\b/)) {
       bot.sendPhoto(msg.chat.id, 'https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2015/11/17/hitler.jpg', {'reply_to_message_id': msg.message_id})
