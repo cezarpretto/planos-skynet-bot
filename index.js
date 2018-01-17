@@ -53,9 +53,17 @@ bot.on('message', msg => {
       images.getKKKImage(msg, bot)
     }
     if(msg.text.toLowerCase().match(/\bpapai\b/)) {
-      bot.sendPhoto(msg.chat.id, 'https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2015/11/17/hitler.jpg', {'reply_to_message_id': msg.message_id})
+      bot.sendSticker(msg.chat.id, 'CAADBAADMwAD19F7AAFg6tpIvqdwbwI', {'reply_to_message_id': msg.message_id})
       bot.sendMessage(msg.chat.id, 'Este é meu pai!')
+    }
+    if(msg.text.toLowerCase().match(/\bpai\b/)) {
+      bot.sendSticker(msg.chat.id, 'CAADBAADjQAD19F7AAEKlQlqIhc6owI', {'reply_to_message_id': msg.message_id})
+      bot.sendMessage(msg.chat.id, 'hahahhahahahhaha').catch(console.log)
     }
     saudacao(msg, bot)
   }
+})
+
+bot.on("new_chat_participant", msg => {
+  bot.sendSticker(msg.chat.id, 'CAADAQADIQADevwcCv3G8gUyH9smAg', {'reply_to_message_id': msg.message_id})
 })
